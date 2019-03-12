@@ -1,0 +1,56 @@
+--LIBRARY IEEE;
+--USE IEEE.STD_LOGIC_1164.ALL;
+---------------------------------------
+--ENTITY multiplicador_tb IS
+--END ENTITY multiplicador_tb;
+---------------------------------------
+--ARCHITECTURE testbench OF multiplicador_tb IS
+--	
+--	SIGNAL	A_tb, B_tb			 :	STD_LOGIC_VECTOR(7 DOWNTO 0);
+--	SIGNAL	product_out_tb 	 :	STD_LOGIC_VECTOR(15 DOWNTO 0);
+--	
+--BEGIN
+--
+--	DUT:	ENTITY work.multiplicador
+--	PORT MAP(		         
+--		A => A_tb, 					
+--		B => B_tb, 					
+--		Product_out => product_out_tb);
+--	
+--	
+--	--reloj_tb <= (NOT reloj_tb) AFTER 10 ns;
+--	
+--         A_tb <= "00000011" AFTER 200 ns,
+--	              "00000010" AFTER 200 ns,
+--					  "00000100" AFTER 200 ns;
+--					  
+--	      A_tb <= "00000001" AFTER 200 ns;
+--	--Input signal generation
+----	signal_generation: PROCESS
+----	BEGIN
+--      
+----		
+----		--boton_tb <= '1';
+----		control_contador_tb <= '1';
+----		WAIT FOR 200 ns;
+----		
+----	--	boton_tb <= '0';
+----		--data_bus_mem_tb <= "11110000";
+----		control_contador_tb <= '0';
+----		WAIT FOR 200 ns;
+----		
+------		readwrite_tb <= '1';
+------		data_bus_pro_tb <="11111111";
+----      control_contador_tb <= '1';
+----	   WAIT FOR 200 ns;
+----		
+----		readwrite_tb <= '0';
+----		WAIT FOR 200 ns;
+----		
+----		readwrite_tb <= '1';
+----		data_bus_pro_tb <= "00000011";
+----		WAIT FOR 200 ns;
+--		
+----	END PROCESS signal_generation;
+--
+--END ARCHITECTURE testbench;

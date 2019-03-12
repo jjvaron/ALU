@@ -1,0 +1,229 @@
+|sum_rest_8b
+X[0] => bitcomparator_8:Amayor.x[0]
+X[0] => full_adder:full_adder_1.X
+X[1] => bitcomparator_8:Amayor.x[1]
+X[1] => full_adder:full_adder_2.X
+X[2] => bitcomparator_8:Amayor.x[2]
+X[2] => full_adder:full_adder_3.X
+X[3] => bitcomparator_8:Amayor.x[3]
+X[3] => full_adder:full_adder_4.X
+X[4] => bitcomparator_8:Amayor.x[4]
+X[4] => full_adder:full_adder_5.X
+X[5] => bitcomparator_8:Amayor.x[5]
+X[5] => full_adder:full_adder_6.X
+X[6] => bitcomparator_8:Amayor.x[6]
+X[6] => full_adder:full_adder_7.X
+X[7] => bitcomparator_8:Amayor.x[7]
+X[7] => full_adder:full_adder_8.X
+Y[0] => Y_S[0].IN0
+Y[0] => bitcomparator_8:Bmayor.x[0]
+Y[1] => Y_S[1].IN0
+Y[1] => bitcomparator_8:Bmayor.x[1]
+Y[2] => Y_S[2].IN0
+Y[2] => bitcomparator_8:Bmayor.x[2]
+Y[3] => Y_S[3].IN0
+Y[3] => bitcomparator_8:Bmayor.x[3]
+Y[4] => Y_S[4].IN0
+Y[4] => bitcomparator_8:Bmayor.x[4]
+Y[5] => Y_S[5].IN0
+Y[5] => bitcomparator_8:Bmayor.x[5]
+Y[6] => Y_S[6].IN0
+Y[6] => bitcomparator_8:Bmayor.x[6]
+Y[7] => Y_S[7].IN0
+Y[7] => bitcomparator_8:Bmayor.x[7]
+SW_1 => Y_S[0].IN1
+SW_1 => Y_S[1].IN1
+SW_1 => Y_S[2].IN1
+SW_1 => Y_S[3].IN1
+SW_1 => Y_S[4].IN1
+SW_1 => Y_S[5].IN1
+SW_1 => Y_S[6].IN1
+SW_1 => Y_S[7].IN1
+SW_1 => full_adder:full_adder_1.CIN
+COUT <= full_adder:full_adder_8.COUT
+OVERFLOW[0] <= <VCC>
+OVERFLOW[1] <= <VCC>
+OVERFLOW[2] <= <VCC>
+OVERFLOW[3] <= <VCC>
+S[0] <> S[0]
+S[1] <> S[1]
+S[2] <> S[2]
+S[3] <> S[3]
+S[4] <> S[4]
+S[5] <> S[5]
+S[6] <> S[6]
+S[7] <> S[7]
+
+
+|sum_rest_8b|Bitcomparator_8:Amayor
+x[0] => LessThan0.IN8
+x[1] => LessThan0.IN7
+x[2] => LessThan0.IN6
+x[3] => LessThan0.IN5
+x[4] => LessThan0.IN4
+x[5] => LessThan0.IN3
+x[6] => LessThan0.IN2
+x[7] => LessThan0.IN1
+y[0] => LessThan0.IN16
+y[1] => LessThan0.IN15
+y[2] => LessThan0.IN14
+y[3] => LessThan0.IN13
+y[4] => LessThan0.IN12
+y[5] => LessThan0.IN11
+y[6] => LessThan0.IN10
+y[7] => LessThan0.IN9
+ls <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sum_rest_8b|Bitcomparator_8:Bmayor
+x[0] => LessThan0.IN8
+x[1] => LessThan0.IN7
+x[2] => LessThan0.IN6
+x[3] => LessThan0.IN5
+x[4] => LessThan0.IN4
+x[5] => LessThan0.IN3
+x[6] => LessThan0.IN2
+x[7] => LessThan0.IN1
+y[0] => LessThan0.IN16
+y[1] => LessThan0.IN15
+y[2] => LessThan0.IN14
+y[3] => LessThan0.IN13
+y[4] => LessThan0.IN12
+y[5] => LessThan0.IN11
+y[6] => LessThan0.IN10
+y[7] => LessThan0.IN9
+ls <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sum_rest_8b|full_adder:full_adder_1
+X => S.IN0
+X => COUT.IN0
+X => COUT.IN0
+Y => S.IN1
+Y => COUT.IN1
+Y => COUT.IN0
+CIN => S.IN1
+CIN => COUT.IN1
+CIN => COUT.IN1
+COUT <= COUT.DB_MAX_OUTPUT_PORT_TYPE
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sum_rest_8b|full_adder:full_adder_2
+X => S.IN0
+X => COUT.IN0
+X => COUT.IN0
+Y => S.IN1
+Y => COUT.IN1
+Y => COUT.IN0
+CIN => S.IN1
+CIN => COUT.IN1
+CIN => COUT.IN1
+COUT <= COUT.DB_MAX_OUTPUT_PORT_TYPE
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sum_rest_8b|full_adder:full_adder_3
+X => S.IN0
+X => COUT.IN0
+X => COUT.IN0
+Y => S.IN1
+Y => COUT.IN1
+Y => COUT.IN0
+CIN => S.IN1
+CIN => COUT.IN1
+CIN => COUT.IN1
+COUT <= COUT.DB_MAX_OUTPUT_PORT_TYPE
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sum_rest_8b|full_adder:full_adder_4
+X => S.IN0
+X => COUT.IN0
+X => COUT.IN0
+Y => S.IN1
+Y => COUT.IN1
+Y => COUT.IN0
+CIN => S.IN1
+CIN => COUT.IN1
+CIN => COUT.IN1
+COUT <= COUT.DB_MAX_OUTPUT_PORT_TYPE
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sum_rest_8b|full_adder:full_adder_5
+X => S.IN0
+X => COUT.IN0
+X => COUT.IN0
+Y => S.IN1
+Y => COUT.IN1
+Y => COUT.IN0
+CIN => S.IN1
+CIN => COUT.IN1
+CIN => COUT.IN1
+COUT <= COUT.DB_MAX_OUTPUT_PORT_TYPE
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sum_rest_8b|full_adder:full_adder_6
+X => S.IN0
+X => COUT.IN0
+X => COUT.IN0
+Y => S.IN1
+Y => COUT.IN1
+Y => COUT.IN0
+CIN => S.IN1
+CIN => COUT.IN1
+CIN => COUT.IN1
+COUT <= COUT.DB_MAX_OUTPUT_PORT_TYPE
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sum_rest_8b|full_adder:full_adder_7
+X => S.IN0
+X => COUT.IN0
+X => COUT.IN0
+Y => S.IN1
+Y => COUT.IN1
+Y => COUT.IN0
+CIN => S.IN1
+CIN => COUT.IN1
+CIN => COUT.IN1
+COUT <= COUT.DB_MAX_OUTPUT_PORT_TYPE
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sum_rest_8b|full_adder:full_adder_8
+X => S.IN0
+X => COUT.IN0
+X => COUT.IN0
+Y => S.IN1
+Y => COUT.IN1
+Y => COUT.IN0
+CIN => S.IN1
+CIN => COUT.IN1
+CIN => COUT.IN1
+COUT <= COUT.DB_MAX_OUTPUT_PORT_TYPE
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sum_rest_8b|Bitcomparator_8:Salida_mayor
+x[0] => LessThan0.IN8
+x[1] => LessThan0.IN7
+x[2] => LessThan0.IN6
+x[3] => LessThan0.IN5
+x[4] => LessThan0.IN4
+x[5] => LessThan0.IN3
+x[6] => LessThan0.IN2
+x[7] => LessThan0.IN1
+y[0] => LessThan0.IN16
+y[1] => LessThan0.IN15
+y[2] => LessThan0.IN14
+y[3] => LessThan0.IN13
+y[4] => LessThan0.IN12
+y[5] => LessThan0.IN11
+y[6] => LessThan0.IN10
+y[7] => LessThan0.IN9
+ls <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
