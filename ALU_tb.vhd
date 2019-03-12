@@ -78,26 +78,26 @@ BEGIN
 		WAIT FOR 200 ns;
 --AND      
 		 operacion_tb <= "100";
-		 A_tb <=   "11111111";
+		 A_tb <=   "11101111";
 		 B_tb <=   "00001111";
 		 --SW_1_tb <= '0';
 		WAIT FOR 200 ns;
       
 		 operacion_tb <= "100";
 		 A_tb <=   "11110000";
-		 B_tb <=   "11111111";
+		 B_tb <=   "11111110";
 --		 SW_1_tb <= '0';
 		WAIT FOR 200 ns;
 --OR      
 		 operacion_tb <= "101";
 		 A_tb <=   "11100111";
-		 B_tb <=   "00111111";
+		 B_tb <=   "00100111";
 	--	 SW_1_tb <= '0';
 		WAIT FOR 200 ns;
       
 		 operacion_tb <= "101";
 		 A_tb <=   "11010111";
-		 B_tb <=   "11111100";
+		 B_tb <=   "10011100";
 		-- SW_1_tb <= '0';
 		WAIT FOR 200 ns;
 		
