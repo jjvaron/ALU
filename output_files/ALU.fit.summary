@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Mar 11 23:01:31 2019
+Fitter Status : Successful - Tue Mar 12 16:02:50 2019
 Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Web Edition
 Revision Name : ALU
-Top-level Entity Name : sum_rest_8b
+Top-level Entity Name : ALU
 Family : Cyclone IV GX
 Device : EP4CGX15BF14C6
 Timing Models : Final
-Total logic elements : 18 / 14,400 ( < 1 % )
-    Total combinational functions : 18 / 14,400 ( < 1 % )
+Total logic elements : 67 / 14,400 ( < 1 % )
+    Total combinational functions : 67 / 14,400 ( < 1 % )
     Dedicated logic registers : 0 / 14,400 ( 0 % )
 Total registers : 0
 Total pins : 30 / 81 ( 37 % )

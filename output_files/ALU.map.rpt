@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ALU
-Mon Mar 11 23:01:24 2019
+Tue Mar 12 16:02:22 2019
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -13,12 +13,16 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Port Connectivity Checks: "Bitcomparator_8:Salida_mayor"
- 10. Port Connectivity Checks: "Bitcomparator_8:Bmayor"
- 11. Port Connectivity Checks: "Bitcomparator_8:Amayor"
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Port Connectivity Checks: "sum_rest_8b:resta"
+ 12. Port Connectivity Checks: "sum_rest_8b:suma"
+ 13. Port Connectivity Checks: "Bitcomparator_8:Salida_mayor"
+ 14. Port Connectivity Checks: "Bitcomparator_8:Bmayor"
+ 15. Port Connectivity Checks: "Bitcomparator_8:Amayor"
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -44,13 +48,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Mar 11 23:01:24 2019      ;
+; Analysis & Synthesis Status        ; Successful - Tue Mar 12 16:02:22 2019      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; ALU                                        ;
-; Top-level Entity Name              ; sum_rest_8b                                ;
+; Top-level Entity Name              ; ALU                                        ;
 ; Family                             ; Cyclone IV GX                              ;
-; Total logic elements               ; 18                                         ;
-;     Total combinational functions  ; 18                                         ;
+; Total logic elements               ; 67                                         ;
+;     Total combinational functions  ; 67                                         ;
 ;     Dedicated logic registers      ; 0                                          ;
 ; Total registers                    ; 0                                          ;
 ; Total pins                         ; 30                                         ;
@@ -70,7 +74,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Top-level entity name                                                      ; sum_rest_8b        ; ALU                ;
+; Top-level entity name                                                      ; ALU                ; ALU                ;
 ; Family name                                                                ; Cyclone IV GX      ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -160,11 +164,12 @@ applicable agreement for further details.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -173,42 +178,73 @@ applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                                          ; Library ;
 +----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; OROP.vhd                         ; yes             ; User VHDL File  ; C:/Users/HewlettPackard/OneDrive - Pontificia Universidad Javeriana/QUINTO SEMESTRE/Organización de Computadores/Laboratorios/ALU/OROP.vhd            ;         ;
+; equal.vhd                        ; yes             ; User VHDL File  ; C:/Users/HewlettPackard/OneDrive - Pontificia Universidad Javeriana/QUINTO SEMESTRE/Organización de Computadores/Laboratorios/ALU/equal.vhd           ;         ;
+; ANDOP.vhd                        ; yes             ; User VHDL File  ; C:/Users/HewlettPackard/OneDrive - Pontificia Universidad Javeriana/QUINTO SEMESTRE/Organización de Computadores/Laboratorios/ALU/ANDOP.vhd           ;         ;
+; ALU.vhd                          ; yes             ; User VHDL File  ; C:/Users/HewlettPackard/OneDrive - Pontificia Universidad Javeriana/QUINTO SEMESTRE/Organización de Computadores/Laboratorios/ALU/ALU.vhd             ;         ;
 ; sum_rest_8b.vhd                  ; yes             ; User VHDL File  ; C:/Users/HewlettPackard/OneDrive - Pontificia Universidad Javeriana/QUINTO SEMESTRE/Organización de Computadores/Laboratorios/ALU/sum_rest_8b.vhd     ;         ;
 ; full_adder.vhd                   ; yes             ; User VHDL File  ; C:/Users/HewlettPackard/OneDrive - Pontificia Universidad Javeriana/QUINTO SEMESTRE/Organización de Computadores/Laboratorios/ALU/full_adder.vhd      ;         ;
 ; bitcomparator_8.vhd              ; yes             ; User VHDL File  ; C:/Users/HewlettPackard/OneDrive - Pontificia Universidad Javeriana/QUINTO SEMESTRE/Organización de Computadores/Laboratorios/ALU/bitcomparator_8.vhd ;         ;
 +----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary ;
-+--------------------------+------------------+
-; Resource                 ; Usage            ;
-+--------------------------+------------------+
-; I/O pins                 ; 30               ;
-; DSP block 9-bit elements ; 0                ;
-; Maximum fan-out node     ; SW_1~input       ;
-; Maximum fan-out          ; 15               ;
-; Total fan-out            ; 112              ;
-; Average fan-out          ; 1.30             ;
-+--------------------------+------------------+
++-----------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary   ;
++--------------------------+--------------------+
+; Resource                 ; Usage              ;
++--------------------------+--------------------+
+; I/O pins                 ; 30                 ;
+; DSP block 9-bit elements ; 0                  ;
+; Maximum fan-out node     ; operacion[1]~input ;
+; Maximum fan-out          ; 20                 ;
+; Total fan-out            ; 286                ;
+; Average fan-out          ; 2.12               ;
++--------------------------+--------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                        ;
-+------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------+--------------+
-; Compilation Hierarchy Node   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Library Name ;
-+------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------+--------------+
-; |sum_rest_8b                 ; 18 (1)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 30   ; 0            ; |sum_rest_8b                         ;              ;
-;    |full_adder:full_adder_1| ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |sum_rest_8b|full_adder:full_adder_1 ;              ;
-;    |full_adder:full_adder_2| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |sum_rest_8b|full_adder:full_adder_2 ;              ;
-;    |full_adder:full_adder_3| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |sum_rest_8b|full_adder:full_adder_3 ;              ;
-;    |full_adder:full_adder_4| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |sum_rest_8b|full_adder:full_adder_4 ;              ;
-;    |full_adder:full_adder_5| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |sum_rest_8b|full_adder:full_adder_5 ;              ;
-;    |full_adder:full_adder_6| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |sum_rest_8b|full_adder:full_adder_6 ;              ;
-;    |full_adder:full_adder_7| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |sum_rest_8b|full_adder:full_adder_7 ;              ;
-;    |full_adder:full_adder_8| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |sum_rest_8b|full_adder:full_adder_8 ;              ;
-+------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+--------------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                     ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+------------------------------------------------+--------------+
+; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                            ; Library Name ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+------------------------------------------------+--------------+
+; |ALU                            ; 67 (43)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 30   ; 0            ; |ALU                                           ;              ;
+;    |Bitcomparator_8:mayor|      ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|Bitcomparator_8:mayor                     ;              ;
+;    |sum_rest_8b:resta|          ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:resta                         ;              ;
+;       |full_adder:full_adder_1| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:resta|full_adder:full_adder_1 ;              ;
+;       |full_adder:full_adder_2| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:resta|full_adder:full_adder_2 ;              ;
+;       |full_adder:full_adder_3| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:resta|full_adder:full_adder_3 ;              ;
+;       |full_adder:full_adder_4| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:resta|full_adder:full_adder_4 ;              ;
+;       |full_adder:full_adder_5| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:resta|full_adder:full_adder_5 ;              ;
+;    |sum_rest_8b:suma|           ; 10 (1)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:suma                          ;              ;
+;       |full_adder:full_adder_0| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:suma|full_adder:full_adder_0  ;              ;
+;       |full_adder:full_adder_1| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:suma|full_adder:full_adder_1  ;              ;
+;       |full_adder:full_adder_2| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:suma|full_adder:full_adder_2  ;              ;
+;       |full_adder:full_adder_3| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:suma|full_adder:full_adder_3  ;              ;
+;       |full_adder:full_adder_4| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:suma|full_adder:full_adder_4  ;              ;
+;       |full_adder:full_adder_5| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:suma|full_adder:full_adder_5  ;              ;
+;       |full_adder:full_adder_6| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:suma|full_adder:full_adder_6  ;              ;
+;       |full_adder:full_adder_7| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |ALU|sum_rest_8b:suma|full_adder:full_adder_7  ;              ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; S_onebit$latch                                     ; Mux11               ; yes                    ;
+; S[0]$latch                                         ; Mux11               ; yes                    ;
+; S[1]$latch                                         ; Mux11               ; yes                    ;
+; S[2]$latch                                         ; Mux11               ; yes                    ;
+; S[3]$latch                                         ; Mux11               ; yes                    ;
+; S[4]$latch                                         ; Mux11               ; yes                    ;
+; S[5]$latch                                         ; Mux11               ; yes                    ;
+; S[6]$latch                                         ; Mux11               ; yes                    ;
+; S[7]$latch                                         ; Mux11               ; yes                    ;
+; Number of user-specified and inferred latches = 9  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -224,6 +260,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 6:1                ; 8 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; No         ; |ALU|Mux0                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sum_rest_8b:resta"                                                                      ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; cout     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; overflow ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sum_rest_8b:suma"                                                                       ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; overflow ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
@@ -261,7 +325,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -271,13 +335,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Mon Mar 11 23:01:21 2019
+    Info: Processing started: Tue Mar 12 16:02:14 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU -c ALU
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file orop.vhd
+    Info (12022): Found design unit 1: OROP-gatelevel
+    Info (12023): Found entity 1: OROP
+Info (12021): Found 2 design units, including 1 entities, in source file equal.vhd
+    Info (12022): Found design unit 1: equal-fun
+    Info (12023): Found entity 1: equal
+Info (12021): Found 2 design units, including 1 entities, in source file andop.vhd
+    Info (12022): Found design unit 1: ANDOP-gatelevel
+    Info (12023): Found entity 1: ANDOP
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: ALU-functional
+    Info (12023): Found entity 1: ALU
 Info (12021): Found 2 design units, including 1 entities, in source file sum_rest_8b_tb.vhd
     Info (12022): Found design unit 1: sum_rest_8b_tb-testbench
     Info (12023): Found entity 1: sum_rest_8b_tb
-Info (12021): Found 0 design units, including 0 entities, in source file multiplicador.vhd
+Warning (12019): Can't analyze file -- file multiplicador.vhd is missing
 Info (12021): Found 0 design units, including 0 entities, in source file multiplicador_tb.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file sum_rest_8b.vhd
     Info (12022): Found design unit 1: sum_rest_8b-functional
@@ -288,18 +364,32 @@ Info (12021): Found 2 design units, including 1 entities, in source file full_ad
 Info (12021): Found 2 design units, including 1 entities, in source file bitcomparator_8.vhd
     Info (12022): Found design unit 1: Bitcomparator_8-functional
     Info (12023): Found entity 1: Bitcomparator_8
-Info (12127): Elaborating entity "sum_rest_8b" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at sum_rest_8b.vhd(105): signal "Smayor" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at sum_rest_8b.vhd(107): signal "Smayor" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at sum_rest_8b.vhd(114): signal "Smayor" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at sum_rest_8b.vhd(116): signal "Smayor" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at sum_rest_8b.vhd(100): inferring latch(es) for signal or variable "OVERFLOW", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "OVERFLOW[0]" at sum_rest_8b.vhd(100)
-Info (10041): Inferred latch for "OVERFLOW[1]" at sum_rest_8b.vhd(100)
-Info (10041): Inferred latch for "OVERFLOW[2]" at sum_rest_8b.vhd(100)
-Info (10041): Inferred latch for "OVERFLOW[3]" at sum_rest_8b.vhd(100)
+Info (12021): Found 0 design units, including 0 entities, in source file alu_tb.vhd
+Info (12127): Elaborating entity "ALU" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at ALU.vhd(19): object "COUT_sr" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at ALU.vhd(20): object "Amayor0" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at ALU.vhd(21): object "Bmayor0" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at ALU.vhd(22): object "Smayor" assigned a value but never read
+Warning (10631): VHDL Process Statement warning at ALU.vhd(71): inferring latch(es) for signal or variable "S_onebit", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(71): inferring latch(es) for signal or variable "S", which holds its previous value in one or more paths through the process
+Warning (10492): VHDL Process Statement warning at ALU.vhd(86): signal "COUT_ss" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(97): signal "operacion" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (10041): Inferred latch for "S[0]" at ALU.vhd(71)
+Info (10041): Inferred latch for "S[1]" at ALU.vhd(71)
+Info (10041): Inferred latch for "S[2]" at ALU.vhd(71)
+Info (10041): Inferred latch for "S[3]" at ALU.vhd(71)
+Info (10041): Inferred latch for "S[4]" at ALU.vhd(71)
+Info (10041): Inferred latch for "S[5]" at ALU.vhd(71)
+Info (10041): Inferred latch for "S[6]" at ALU.vhd(71)
+Info (10041): Inferred latch for "S[7]" at ALU.vhd(71)
+Info (10041): Inferred latch for "S_onebit" at ALU.vhd(71)
 Info (12128): Elaborating entity "Bitcomparator_8" for hierarchy "Bitcomparator_8:Amayor"
-Info (12128): Elaborating entity "full_adder" for hierarchy "full_adder:full_adder_1"
+Info (12128): Elaborating entity "sum_rest_8b" for hierarchy "sum_rest_8b:suma"
+Warning (10541): VHDL Signal Declaration warning at sum_rest_8b.vhd(9): used implicit default value for signal "OVERFLOW" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "full_adder" for hierarchy "sum_rest_8b:suma|full_adder:full_adder_0"
+Info (12128): Elaborating entity "equal" for hierarchy "equal:equal"
+Info (12128): Elaborating entity "ANDOP" for hierarchy "ANDOP:ANDOP"
+Info (12128): Elaborating entity "OROP" for hierarchy "OROP:OROP"
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "S[0]" and its non-tri-state driver.
     Warning (13035): Inserted always-enabled tri-state buffer between "S[1]" and its non-tri-state driver.
@@ -309,6 +399,24 @@ Warning (13034): The following nodes have both tri-state and non-tri-state drive
     Warning (13035): Inserted always-enabled tri-state buffer between "S[5]" and its non-tri-state driver.
     Warning (13035): Inserted always-enabled tri-state buffer between "S[6]" and its non-tri-state driver.
     Warning (13035): Inserted always-enabled tri-state buffer between "S[7]" and its non-tri-state driver.
+Warning (13012): Latch S_onebit$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal operacion[0]
+Warning (13012): Latch S[0]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal operacion[1]
+Warning (13012): Latch S[1]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal operacion[1]
+Warning (13012): Latch S[2]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal operacion[1]
+Warning (13012): Latch S[3]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal operacion[1]
+Warning (13012): Latch S[4]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal operacion[1]
+Warning (13012): Latch S[5]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal operacion[1]
+Warning (13012): Latch S[6]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal operacion[1]
+Warning (13012): Latch S[7]$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal operacion[1]
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "S[0]~synth"
     Warning (13010): Node "S[1]~synth"
@@ -318,23 +426,20 @@ Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "S[5]~synth"
     Warning (13010): Node "S[6]~synth"
     Warning (13010): Node "S[7]~synth"
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "OVERFLOW[0]" is stuck at VCC
-    Warning (13410): Pin "OVERFLOW[1]" is stuck at VCC
-    Warning (13410): Pin "OVERFLOW[2]" is stuck at VCC
-    Warning (13410): Pin "OVERFLOW[3]" is stuck at VCC
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 48 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 17 input pins
-    Info (21059): Implemented 5 output pins
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "rst"
+Info (21057): Implemented 97 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 20 input pins
+    Info (21059): Implemented 2 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 18 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 28 warnings
+    Info (21061): Implemented 67 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 48 warnings
     Info: Peak virtual memory: 568 megabytes
-    Info: Processing ended: Mon Mar 11 23:01:24 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Tue Mar 12 16:02:22 2019
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:04
 
 
