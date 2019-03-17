@@ -29,26 +29,28 @@ BEGIN
 	signal_generation: PROCESS
 	BEGIN
 --EQUAL      
-		 operacion_tb <= "000";
-		 A_tb <=   "11111111";
-		 B_tb <=   "00000001";
+	--	 operacion_tb <= "000";
+	--	 A_tb <=   "11111111";
+	--	 B_tb <=   "00000001";
 --		 SW_1_tb <= '0';
-		WAIT FOR 200 ns;      
-		 operacion_tb <= "000";
-		 A_tb <=   "11111111";
-		 B_tb <=   "11111111";
+	--	WAIT FOR 200 ns;      
+	--	 operacion_tb <= "000";
+	--	 A_tb <=   "11111111";
+	--	 B_tb <=   "11111111";
 	--	 SW_1_tb <= '0';
-		WAIT FOR 200 ns;
+	--	WAIT FOR 200 ns;
 
 --SUMA      
 		 operacion_tb <= "001";
+		 WAIT FOR 600 ns;
+		
 		 A_tb <=   "11111111";
 		 B_tb <=   "00000001";
 		-- SW_1_tb <= '0';
 		WAIT FOR 200 ns;
 		
-		operacion_tb <= "001";
-      A_tb <=   "10000011";
+	--peracion_tb <= "001";
+                A_tb <=   "10000011";
 		B_tb <=   "10001001";
 		--SW_1_tb <= '0';
 		WAIT FOR 200 ns;
